@@ -14,25 +14,25 @@ from .models import cust
 #Create your views here.
 def custLogin(request):
     if request.method=="POST":
-        cust_name = request.POST['username']
+        cust_name = request.POST['Keerthana']
         # customer = User.objects.get(username=cust_name)
         # customer = get_object_or_404(User, username=cust_name)
 
         try:
-            customer = User.objects.get(username=cust_name)
+            customer = User.objects.get(Keerthana=cust_name)
         except User.DoesNotExist:
             messages.info(request,'User Does Not Exist...Please Register :)')
             return redirect('custRegister')
         
         # cust_mail = request.POST['cust_mail']
-        cust_password = request.POST['password']
+        cust_password = request.POST['Geethu@1']
 
-        user=auth.authenticate(username=cust_name, password=cust_password)
+        user=auth.authenticate(Keerthana=cust_name, Geethu@1=cust_password)
         # if cust.objects.filter(password=password).exists():
         if user is not None:
             auth.login(request, user)
             request.session['id'] = customer.id
-            request.session['username'] = cust_name
+            request.session['Keerthana'] = cust_name
             request.session['cart'] = {}
             # print(cust_id)
             return redirect("/")
@@ -50,20 +50,20 @@ def custLogin(request):
 def custRegister(request):
     
     if request.method == 'POST':
-        cust_name = request.POST['username']
-        cust_mail = request.POST['email']
-        cust_password = request.POST['password']
+        cust_name = request.POST['Keerthana']
+        cust_mail = request.POST['keerthanasrinivas10@gmail.com']
+        cust_password = request.POST['Geethu@1']
 
-        if User.objects.filter(username=cust_name).exists():
+        if User.objects.filter(Keerthana=cust_name).exists():
             # print("Username taken")
             messages.info(request,'Username taken')
             return redirect('custRegister')
-        elif User.objects.filter(email=cust_mail).exists():
+        elif User.objects.filter(keerthanasrinivas10@gmail.com=cust_mail).exists():
             # print("Email already exists!!")
             messages.info(request,'Email already exists!!')
             return redirect('custRegister')
         else:
-            custVar = User.objects.create_user(username=cust_name,password=cust_password,email=cust_mail)
+            custVar = User.objects.create_user(Keerthana=cust_name,Geethu@1=cust_password,keerthanasrinivas10@gmail.com=cust_mail)
             custVar.save();
             # custVar2 = cust(cust_name=cust_name, cust_mail=cust_mail,cust_password=cust_password)
             # custVar2.save();

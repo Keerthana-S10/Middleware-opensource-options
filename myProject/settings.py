@@ -87,7 +87,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'starhoteldb',
         'USER': 'postgres',
-        'PASSWORD': 'hpe8',
+        'PASSWORD': '1234',
         'HOST': '127.0.0.1'
     }
 }
